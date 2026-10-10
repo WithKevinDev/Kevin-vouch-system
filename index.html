@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b080a">
+  <title>Kevin Vouch System — Real People. Real Proof.</title>
+  <meta name="description" content="A clean, community-powered wall of customer feedback.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="nav wrap">
+    <a class="brand" href="/" aria-label="Kevin Vouch System home"><span class="brand-mark">V</span><span>KEVIN<span class="brand-light">VOUCH</span></span></a>
+    <nav><a class="nav-link active" href="#vouches">Vouches</a><a class="nav-link" href="#trust">Trust center</a><a class="nav-link" href="#about">About</a></nav>
+    <a class="button button-small" href="#submit">＋ Submit vouch</a>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> CUSTOMER FEEDBACK, MADE CLEAR</div>
+        <h1>REAL PEOPLE.<br><span class="gradient-text">REAL PROOF.</span></h1>
+        <p class="hero-sub">A clean, community-powered wall of customer feedback. Good experiences deserve to be seen.</p>
+        <div class="hero-actions"><a class="button" href="#vouches">Explore vouches <span>↘</span></a><a class="quiet-link" href="#submit">Bought something? Leave feedback <span>→</span></a></div>
+        <div class="mini-proof"><div class="avatar-stack"><span>J</span><span>M</span><span>K</span><span>+</span></div><p><b id="happy-count">642+</b><br><small>happy customers</small></p><div class="proof-divider"></div><p><b>Built for trust</b><br><small>feedback at a glance</small></p></div>
+      </div>
+      <div class="hero-art" aria-label="Decorative red abstract orb">
+        <div class="orb-ring ring-a"></div><div class="orb-ring ring-b"></div><div class="orb-core"><span>V</span></div>
+        <div class="float-card float-top"><span class="float-icon">✓</span><span><b>Feedback received</b><small>Community powered</small></span><i>●</i></div>
+        <div class="float-card float-bottom"><span class="rating">★★★★★</span><b>Trust looks good on you.</b><small>Every voice matters.</small></div>
+        <div class="art-label">KEVIN / 001</div>
+      </div>
+    </section>
+
+    <section class="stats wrap" aria-label="Vouch statistics">
+      <article class="stat-card"><span class="stat-icon">▤</span><div><strong id="stat-total">1,284</strong><small>Total vouches <i class="dot"></i></small></div><span class="stat-arrow">↗</span></article>
+      <article class="stat-card"><span class="stat-icon">✦</span><div><strong id="stat-positive">98.7%</strong><small>Positive feedback <i class="dot"></i></small></div><span class="stat-arrow">↗</span></article>
+      <article class="stat-card"><span class="stat-icon">♧</span><div><strong id="stat-customers">642</strong><small>Happy customers <i class="dot"></i></small></div><span class="stat-arrow">↗</span></article>
+    </section>
+
+    <section class="content-grid wrap" id="vouches">
+      <div class="feed">
+        <div class="section-heading"><div><div class="eyebrow">THE COMMUNITY</div><h2>Latest <span class="gradient-text">vouches.</span></h2></div><span class="demo-pill"><span></span> DEMO CONTENT</span></div>
+        <div class="toolbar"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="Search vouches or usernames…" aria-label="Search vouches"></label><select id="sort" aria-label="Sort vouches"><option value="newest">Newest first</option><option value="liked">Most reactions</option></select></div>
+        <div class="filter-row"><button class="filter active" data-filter="all">All vouches <span id="filter-count">6</span></button><button class="filter" data-filter="positive">Positive</button><button class="filter" data-filter="verified">Verified purchase</button></div>
+        <div id="vouch-list" class="vouch-list" aria-live="polite"></div>
+        <p class="feed-foot">Showing community feedback. Demo entries are examples, not real customer transactions.</p>
+      </div>
+      <aside class="side-column">
+        <div class="side-card trust-card" id="trust"><div class="side-icon">⛨</div><div class="eyebrow">TRUST CENTER</div><h3>Trust, built in.</h3><p>Designed to keep feedback useful, respectful, and safer to browse.</p><ul><li><span>✓</span><div><b>Verified submissions</b><small>Purchase verification can be enabled.</small></div></li><li><span>✓</span><div><b>Spam protection</b><small>Rate limits and validation on the server.</small></div></li><li><span>✓</span><div><b>Safer content</b><small>Links and abusive terms are filtered.</small></div></li></ul><div class="trust-status"><span class="pulse"></span> MODERATION-FIRST DESIGN</div></div>
+        <div class="side-card submit-card" id="submit"><div class="side-icon">✎</div><h3>Made a purchase?</h3><p>Share honest feedback with the community. Keep it real and respectful.</p><a href="#submit-form" class="button button-wide">Write a vouch <span>↗</span></a><small class="fine-print">Submissions may be reviewed before appearing.</small></div>
+      </aside>
+    </section>
+
+    <section class="submit-section wrap" id="submit-form">
+      <div class="submit-intro"><div class="eyebrow">YOUR EXPERIENCE COUNTS</div><h2>Leave your<br><span class="gradient-text">mark.</span></h2><p>Tell people how it went. No links, no spam, just honest feedback.</p><div class="quote-mark">“</div><p class="quote">The best reputation is the one your customers build with you.</p></div>
+      <form id="vouch-form" class="form-card">
+        <div class="form-top"><div><h3>Submit a vouch</h3><p>Fields marked * are required.</p></div><span class="form-lock">♧ SAFE SUBMISSION</span></div>
+        <label>Your display name *<input name="name" maxlength="24" minlength="2" required placeholder="e.g. NovaK"></label>
+        <label>How was your experience? *<select name="rating" required><option value="5">★★★★★ — Excellent</option><option value="4">★★★★☆ — Great</option><option value="3">★★★☆☆ — Okay</option><option value="2">★★☆☆☆ — Not great</option><option value="1">★☆☆☆☆ — Poor</option></select></label>
+        <label>Your vouch *<textarea name="message" minlength="8" maxlength="400" required rows="4" placeholder="Share a few details about your experience…"></textarea><span class="input-hint">8–400 characters. Links and abusive content aren't allowed.</span></label>
+        <label class="checkbox-row"><input type="checkbox" required> <span>I confirm this reflects my genuine experience.</span></label>
+        <button class="button button-wide" type="submit">Send for review <span>→</span></button>
+        <p id="form-status" class="form-status" role="status"></p>
+        <p class="fine-print">Demo mode: submissions are stored in this browser. Connect the Cloudflare API and D1 database for shared live submissions.</p>
+      </form>
+    </section>
+    <section class="about-strip wrap" id="about"><span class="brand-mark">V</span><div><b>Reputation should be earned.</b><p>Kevin Vouch System helps make customer feedback easy to find and easy to understand.</p></div><a class="quiet-link" href="/admin.html">Admin panel ↗</a></section>
+  </main>
+  <footer class="footer wrap"><a class="brand" href="/"><span class="brand-mark">V</span><span>KEVIN<span class="brand-light">VOUCH</span></span></a><span>© <span id="year"></span> Kevin Vouch System</span><span>Keep it honest. Keep it respectful.</span></footer>
+  <script src="/app.js"></script>
+</body>
+</html>
