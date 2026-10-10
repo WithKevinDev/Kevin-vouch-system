@@ -5,33 +5,138 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Kevin — Vouches</title>
 <link rel="stylesheet" href="/style.css" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✅</text></svg>" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>" />
 </head>
 <body>
+
+  <div class="bg-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="grid-overlay"></div>
+
+  <nav class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span> Kevin
+    </div>
+    <div class="topbar-right">
+      <button id="adminToggle" class="admin-btn">🔒 Admin</button>
+      <a href="https://discord.gg/luascript" target="_blank" rel="noopener" class="discord-btn">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3c-.2.4-.5.9-.7 1.3a18.3 18.3 0 0 0-5.4 0C9.1 3.9 8.8 3.4 8.6 3a19.7 19.7 0 0 0-4.9 1.4C.6 9 -.3 13.5.2 17.9a19.9 19.9 0 0 0 6 3c.5-.6.9-1.3 1.2-2-.7-.3-1.3-.6-1.9-1 .2-.1.3-.3.5-.4a14.2 14.2 0 0 0 12 0c.2.1.3.3.5.4-.6.4-1.2.7-1.9 1 .3.7.7 1.4 1.2 2a19.8 19.8 0 0 0 6-3c.6-5.1-.6-9.5-3.4-13.5ZM8.3 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7.4 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg>
+        discord.gg/luascript
+      </a>
+    </div>
+  </nav>
+
   <header class="hero">
-    <div class="badge">✔ verified seller</div>
-    <h1>Kevin</h1>
-    <p class="sub">real vouches from real people</p>
+    <div class="badge">
+      <span class="pulse"></span> verified seller
+    </div>
+    <h1><span class="grad">Kevin</span></h1>
+    <p class="sub">real vouches · real people · zero scams</p>
+
     <div class="stats">
-      <div><strong id="total">0</strong><span>vouches</span></div>
-      <div><strong id="avg">5.0</strong><span>avg rating</span></div>
-      <div><strong id="verified">0</strong><span>verified</span></div>
+      <div class="stat">
+        <strong id="total">0</strong>
+        <span>vouches</span>
+      </div>
+      <div class="stat">
+        <strong id="avg">5.0</strong>
+        <span>avg rating</span>
+      </div>
+      <div class="stat">
+        <strong id="verified">0</strong>
+        <span>verified</span>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#add" class="btn-primary">+ Add a Vouch</a>
+      <a href="#list" class="btn-ghost">View all</a>
     </div>
   </header>
 
-  <main>
+  <section id="add" class="add-section">
+    <h2>Add your vouch</h2>
+    <p class="muted">bought something? leave a vouch below.</p>
+
+    <form id="addForm" class="vouch-form">
+      <div class="form-row">
+        <input name="username" placeholder="your name / username" maxlength="24" required />
+        <select name="rating" required>
+          <option value="5">★★★★★ — 5 stars</option>
+          <option value="4">★★★★☆ — 4 stars</option>
+          <option value="3">★★★☆☆ — 3 stars</option>
+          <option value="2">★★☆☆☆ — 2 stars</option>
+          <option value="1">★☆☆☆☆ — 1 star</option>
+        </select>
+      </div>
+      <textarea name="message" placeholder="what did you buy? how was it?" maxlength="280" required></textarea>
+      <button type="submit" class="btn-primary">Post vouch</button>
+      <p id="addStatus" class="muted"></p>
+    </form>
+  </section>
+
+  <main id="list">
     <div class="controls">
-      <input id="search" placeholder="search vouches..." />
+      <input id="search" placeholder="🔎 search vouches..." />
       <select id="sort">
-        <option value="new">newest</option>
-        <option value="old">oldest</option>
+        <option value="new">newest first</option>
+        <option value="old">oldest first</option>
         <option value="high">highest rated</option>
       </select>
     </div>
     <div id="grid" class="grid"></div>
   </main>
 
-  <footer>© Kevin — all rights reserved</footer>
+  <footer>
+    <p>© Kevin — all rights reserved</p>
+    <a href="https://discord.gg/luascript" target="_blank" rel="noopener">join the discord</a>
+  </footer>
+
+  <!-- ============ ADMIN OVERLAY ============ -->
+  <div id="adminOverlay" class="overlay hidden">
+    <div class="overlay-card">
+
+      <!-- LOGIN -->
+      <div id="adminLogin">
+        <h2>🔒 Admin Access</h2>
+        <p class="muted">enter password to unlock mass tools</p>
+        <input id="pw" type="password" placeholder="password" />
+        <button id="loginBtn" class="btn-primary">Unlock</button>
+        <p id="loginErr" class="err"></p>
+        <button id="closeLogin" class="btn-ghost close-btn">close</button>
+      </div>
+
+      <!-- PANEL -->
+      <div id="adminPanel" class="hidden">
+        <div class="panel-head">
+          <h2>🛠 Admin Tools</h2>
+          <button id="closePanel" class="btn-ghost close-btn">close</button>
+        </div>
+
+        <div class="admin-card">
+          <h3>Mass Create</h3>
+          <p class="muted">generate realistic fake vouches</p>
+          <div class="row">
+            <input id="count" type="number" min="1" max="500" value="25" />
+            <button id="createBtn" class="btn-primary">Generate</button>
+            <button id="clearBtn" class="btn-danger">Clear All</button>
+          </div>
+          <p id="status" class="muted"></p>
+        </div>
+
+        <div class="admin-card">
+          <h3>All Vouches (<span id="count2">0</span>)</h3>
+          <div id="adminList" class="list"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <script src="/main.js"></script>
+  <script src="/admin.js"></script>
 </body>
 </html>
